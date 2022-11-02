@@ -2,7 +2,7 @@
 <div data-pagefind-ignore="all">
 {{ range $index, $element := $.Paginator.Pages }}
 <div class="post-preview">
-    <a href="{{ .Permalink }}">
+    <a href="{{ .RelPermalink }}">
         <h2 class="post-title">
             {{ .Title }}
         </h2>
@@ -23,7 +23,7 @@
     {{ if .Params.metadata }}
         {{ range $index, $element := .Params.metadata }}
             {{ if .link }}
-                <a href="{{ .link }}">{{ .text }}</a>
+                <a href="{{.RelPermalink}}">{{ .text }}</a>
             {{ else }}
                 {{ .text }}
             {{ end }}
