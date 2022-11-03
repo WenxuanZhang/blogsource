@@ -19,11 +19,18 @@ const hitTemplate = function(hit) {
 /*  if (hit === null){
       return;
   }*/
+  let url = `${hit.url}#${hit.anchor}`;
+  let title = `${hit.title}`
+
+  /*if url contains post then return*/
+  is_post = url.includes("/post/")
+
+  if(is_post && title != ""){
   let date = '';
   if (hit.date) {
     date = moment.unix(hit.date).format('MMM D, YYYY');
   }
-  let url = `${hit.url}#${hit.anchor}`;
+
   const title = hit._highlightResult.title.value;
 
   let breadcrumbs = '';
@@ -49,7 +56,7 @@ const hitTemplate = function(hit) {
       <a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>
       <div class="post-snippet">${content}</div>
     </div>
-  `;
+  `;}
 }
 
 
